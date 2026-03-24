@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antigravity Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-aasuFY7F.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BcWXd2na.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h1>Chat History</h1>
+          <button id="new-chat-btn" title="New Chat">+</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <!-- History items will be injected here -->
+        </div>
+      </div>
+      
+      <main class="chat-container">
+        <header class="chat-header">
+          <div class="model-info">
+            <span class="status-indicator"></span>
+            <h2>Llama-3.1-8B</h2>
+          </div>
+          <button id="clear-chat-btn">Clear Current</button>
+        </header>
+        
+        <div id="chat-messages" class="chat-messages">
+          <!-- Messages will be injected here -->
+          <div class="welcome-message">
+            <div class="bot-icon">🤖</div>
+            <h2>Hello! I'm your AI assistant.</h2>
+            <p>How can I help you today? I'll remember our conversation history.</p>
+          </div>
+        </div>
+        
+        <div class="input-area">
+          <div class="input-wrapper">
+            <textarea id="user-input" placeholder="Type a message..." rows="1"></textarea>
+            <button id="send-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

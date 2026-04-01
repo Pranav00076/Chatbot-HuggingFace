@@ -20,9 +20,18 @@ const generationControls = document.getElementById('generation-controls');
 const maxTokensInput = document.getElementById('max-tokens');
 const tokenVal = document.getElementById('token-val');
 
-// API Key (from user request)
-const HF_TOKEN = "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";
-const client = new InferenceClient(HF_TOKEN);
+// API Key Management
+const DEFAULT_HF_TOKEN = "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";
+let HF_TOKEN = localStorage.getItem('hf_api_key') || DEFAULT_HF_TOKEN;
+let client = new InferenceClient(HF_TOKEN);
+
+// Settings UI Elements
+const toggleSettingsBtn = document.getElementById('toggle-settings-btn');
+const apiKeyContainer = document.getElementById('api-key-container');
+const apiKeyInput = document.getElementById('api-key-input');
+const showKeyBtn = document.getElementById('show-key-btn');
+const saveKeyBtn = document.getElementById('save-key-btn');
+const clearKeyBtn = document.getElementById('clear-key-btn');
 
 // Initialize
 function init() {
@@ -79,6 +88,42 @@ function init() {
             };
             userInput.placeholder = placeholders[currentMode] || "Type a message...";
         });
+    });
+    
+    // API Key Event Listeners
+    toggleSettingsBtn?.addEventListener('click', () => {
+        apiKeyContainer.classList.toggle('hidden');
+        if (!apiKeyContainer.classList.contains('hidden')) {
+            apiKeyInput.value = localStorage.getItem('hf_api_key') || '';
+        }
+    });
+
+    showKeyBtn?.addEventListener('click', () => {
+        const type = apiKeyInput.type === 'password' ? 'text' : 'password';
+        apiKeyInput.type = type;
+        showKeyBtn.textContent = type === 'password' ? '👁️' : '🔒';
+    });
+
+    saveKeyBtn?.addEventListener('click', () => {
+        const key = apiKeyInput.value.trim();
+        if (key) {
+            localStorage.setItem('hf_api_key', key);
+            HF_TOKEN = key;
+            client = new InferenceClient(HF_TOKEN);
+            alert('API Key saved successfully!');
+            apiKeyContainer.classList.add('hidden');
+        } else {
+            alert('Please enter a valid API Key.');
+        }
+    });
+
+    clearKeyBtn?.addEventListener('click', () => {
+        localStorage.removeItem('hf_api_key');
+        HF_TOKEN = DEFAULT_HF_TOKEN;
+        client = new InferenceClient(HF_TOKEN);
+        apiKeyInput.value = '';
+        alert('API Key cleared. Using default.');
+        apiKeyContainer.classList.add('hidden');
     });
 }
 

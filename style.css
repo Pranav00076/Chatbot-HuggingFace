@@ -441,6 +441,132 @@ textarea {
   background: var(--text-dim);
 }
 
+/* Sidebar Footer & Settings */
+.sidebar-footer {
+  padding: 15px;
+  border-top: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-header h3 {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#toggle-settings-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  filter: grayscale(1) opacity(0.5);
+  transition: all 0.3s ease;
+}
+
+#toggle-settings-btn:hover {
+  filter: grayscale(0) opacity(1);
+  transform: rotate(45deg);
+}
+
+.api-key-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.api-key-container.hidden {
+  display: none;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.api-input-group {
+  display: flex;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 4px 8px;
+  align-items: center;
+}
+
+#api-key-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 0.85rem;
+  padding: 8px 4px;
+  outline: none;
+  width: 100%;
+}
+
+#show-key-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+}
+
+.api-actions {
+  display: flex;
+  gap: 8px;
+}
+
+#save-key-btn, #clear-key-btn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#save-key-btn {
+  background: var(--primary-accent);
+  color: white;
+  border: none;
+}
+
+#save-key-btn:hover {
+  box-shadow: 0 0 10px var(--primary-accent-glow);
+}
+
+#clear-key-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-dim);
+}
+
+#clear-key-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.api-note {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-style: italic;
+  text-align: center;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .sidebar {

@@ -20,6 +20,25 @@
         <div id="history-list" class="history-list">
           <!-- History items will be injected here -->
         </div>
+        <div class="sidebar-footer">
+          <div class="settings-section">
+            <div class="settings-header">
+              <h3>API Settings</h3>
+              <button id="toggle-settings-btn" title="Toggle Settings">⚙️</button>
+            </div>
+            <div id="api-key-container" class="api-key-container hidden">
+              <div class="api-input-group">
+                <input type="password" id="api-key-input" placeholder="Hugging Face API Key">
+                <button id="show-key-btn" title="Show/Hide Key">👁️</button>
+              </div>
+              <div class="api-actions">
+                <button id="save-key-btn">Save Key</button>
+                <button id="clear-key-btn">Clear</button>
+              </div>
+              <p class="api-note">Your key is stored locally in your browser.</p>
+            </div>
+          </div>
+        </div>
       </div>
       
       <main class="chat-container">

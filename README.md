@@ -1,4 +1,4 @@
-# Antigravity Chatbot 🤖
+# HuggingFace Chatbot 🤖
 
 A modern, full-featured AI Chatbot powered by Hugging Face Inference API. This project demonstrates a powerful implementation of multimodal AI capabilities in a clean, responsive web interface using Vanilla JavaScript and Vite.
 
